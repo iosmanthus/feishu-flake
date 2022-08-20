@@ -64,7 +64,10 @@ stdenv.mkDerivation rec {
   version = "5.14.14";
   pname = "feishu";
 
-  src = ./Feishu-linux_x64-${version}.deb;
+  src = fetchurl {
+    url = "https://github.com/iosmanthus/feishu-flake/releases/download/v5.14.14/Feishu-linux_x64-5.14.14.deb";
+    sha256 = "1v0vgr2xi5dqzpmx7as888kfs36vswakpcs6ijhavn0hvjg9kjn0";
+  };
 
   nativeBuildInputs = [
     autoPatchelfHook
