@@ -12,5 +12,6 @@
     in
     {
       packages.${system}.feishu = (pkgs.callPackage ./default.nix { });
+      legacyPackages.${system}.feishu = (pkgs.callPackage ./default.nix { });
     };
 }
