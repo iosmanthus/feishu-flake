@@ -11,7 +11,6 @@
       };
     in
     {
-      packages.x86_64-linux.hello = (pkgs.callPackage ./default.nix { });
-      defaultPackage.x86_64-linux = (pkgs.callPackage ./default.nix { });
+      packages.${system}.feishu = (pkgs.callPackage ./default.nix { });
     };
 }
