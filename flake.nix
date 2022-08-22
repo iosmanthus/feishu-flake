@@ -11,7 +11,7 @@
       };
     in
     {
-      overlay = self: super: {
+      overlay = final: prev: {
         feishu = self.packages.${system}.feishu;
       };
       packages.${system}.feishu = (pkgs.callPackage ./default.nix { });
