@@ -8,14 +8,12 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
+        config.allowUnfree = true;
       };
     in
     {
       overlay = final: prev: {
-        feishu = with import "${nixpkgs}" {
-            system = "x86_64-linux";
-            config.allowUnfree = true;
-          }; self.packages.${system}.feishu;
+        feishu = self.packages.${system}.feishu;
       };
       packages.${system}.feishu = (pkgs.callPackage ./default.nix { });
       legacyPackages.${system}.feishu = (pkgs.callPackage ./default.nix { });
