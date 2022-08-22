@@ -12,7 +12,10 @@
     in
     {
       overlay = final: prev: {
-        feishu = self.packages.${system}.feishu;
+        feishu = with import "${nixpkgs}" {
+            system = "x86_64-linux";
+            config.allowUnfree = true;
+          }; self.packages.${system}.feishu;
       };
       packages.${system}.feishu = (pkgs.callPackage ./default.nix { });
       legacyPackages.${system}.feishu = (pkgs.callPackage ./default.nix { });
